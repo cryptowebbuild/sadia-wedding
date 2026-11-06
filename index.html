@@ -28,15 +28,16 @@
         extend: {
           colors: {
             royal: {
-              950: '#0d0205',
-              900: '#1a0509',
-              850: '#26080e',
-              800: '#350b14',
-              700: '#4d101d',
+              950: '#0a0204',
+              900: '#170407',
+              850: '#24060c',
+              800: '#330811',
+              750: '#420b17',
+              700: '#540f1e',
             },
             gold: {
-              300: '#f7e5a9',
-              400: '#eac86b',
+              300: '#f9e8b2',
+              400: '#ebd07d',
               500: '#d4af37',
               600: '#b89428',
               700: '#94741c',
@@ -53,67 +54,91 @@
 
   <style>
     body {
-      background-color: #0d0205;
+      background-color: #0a0204;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(84, 15, 30, 0.45) 0%, transparent 60%),
+        radial-gradient(circle at 100% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 0% 80%, rgba(84, 15, 30, 0.35) 0%, transparent 50%);
       color: #f3f4f6;
       font-family: 'Hind Siliguri', sans-serif;
     }
     .gold-gradient-text {
-      background: linear-gradient(135deg, #fff2c6 0%, #d4af37 50%, #aa7c11 100%);
+      background: linear-gradient(135deg, #fff7d6 0%, #eac86b 40%, #d4af37 70%, #aa7c11 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .crimson-gradient {
-      background: linear-gradient(135deg, #1a0509 0%, #350b14 50%, #1a0509 100%);
+      background: linear-gradient(135deg, #170407 0%, #330811 50%, #170407 100%);
     }
-    .gold-border-glow {
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.22);
+    .gold-card-glow {
+      box-shadow: 0 0 35px rgba(212, 175, 55, 0.18), inset 0 0 20px rgba(212, 175, 55, 0.05);
+    }
+    .gold-border-shine {
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      position: relative;
+    }
+    .gold-border-shine::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 15%; right: 15%; height: 1px;
+      background: linear-gradient(90deg, transparent, #f9e8b2, transparent);
     }
     .badge-blur {
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
     .pulse-glow {
       animation: pulseGlow 2.5s infinite;
     }
     @keyframes pulseGlow {
       0%, 100% {
-        box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+        box-shadow: 0 0 15px rgba(37, 211, 102, 0.45);
       }
       50% {
-        box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
+        box-shadow: 0 0 32px rgba(37, 211, 102, 0.85);
       }
     }
     .active-thumb {
       border-color: #d4af37 !important;
-      transform: scale(0.97);
+      transform: scale(0.96);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
     }
     .size-btn.active-size {
-      background-color: #d4af37;
-      color: #0d0205;
-      font-weight: 700;
+      background: linear-gradient(135deg, #d4af37 0%, #b89428 100%);
+      color: #0a0204;
+      font-weight: 800;
       border-color: #d4af37;
     }
     .deal-tab.active-deal {
       background: linear-gradient(135deg, #d4af37 0%, #b89428 100%);
-      color: #0d0205;
+      color: #0a0204;
       font-weight: 800;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
     }
   </style>
 </head>
-<body class="antialiased selection:bg-gold-500 selection:text-royal-950 pb-20 md:pb-10">
+<body class="antialiased selection:bg-gold-500 selection:text-royal-950 pb-20 md:pb-12">
+
+  <!-- Interactive Demo Advisory Banner -->
+  <aside aria-label="Demo Advisory" class="bg-gradient-to-r from-amber-600/90 via-gold-600/90 to-amber-700/90 text-royal-950 text-xs md:text-sm py-2 px-4 text-center font-bold shadow-md border-b border-amber-300/40">
+    <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
+      <span class="inline-block bg-royal-950 text-gold-300 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider font-extrabold">LIVE DEMO</span>
+      <span>এটি "সাদিয়া ওয়েডিং শপ"-এর জন্য প্রস্তুতকৃত ফ্রি স্যাম্পল ডেমো স্টোর • আপনার পছন্দমতো প্রতিটি ছবি, মূল্য ও ডিটেইলস কাস্টমাইজ করে দেওয়া হবে।</span>
+    </div>
+  </aside>
 
   <!-- Top Announcement Bar -->
-  <div class="bg-gradient-to-r from-royal-900 via-royal-800 to-royal-900 border-b border-gold-500/20 text-gold-300 text-[11px] md:text-xs py-2 px-4 text-center font-medium">
+  <div class="bg-gradient-to-r from-royal-900 via-royal-800 to-royal-900 border-b border-gold-500/20 text-gold-300 text-[11px] md:text-xs py-2 px-4 font-medium">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       <span class="flex items-center gap-1.5 mx-auto md:mx-0">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
         <span>বাটা সিগন্যাল শোরুমে ওয়েডিং সিজন অফার চলছে • <strong>ক্রয় ও সুলভ মূল্যে ভাড়া (Rental)</strong> উভয় সুবিধা!</span>
       </span>
-      <div class="hidden md:flex items-center gap-4 text-xs">
+      <div class="hidden md:flex items-center gap-5 text-xs">
         <a href="tel:01632167169" class="hover:text-white transition flex items-center gap-1">
           <i data-lucide="phone" class="w-3.5 h-3.5 text-gold-400"></i> ০১৬৩২-১৬৭১৬৯
         </a>
-        <a href="https://wa.me/8801632167169" target="_blank" class="hover:text-white transition flex items-center gap-1 text-emerald-400">
+        <a href="https://wa.me/8801632167169" target="_blank" class="hover:text-white transition flex items-center gap-1 text-emerald-400 font-bold">
           <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> হোয়াটসঅ্যাপ
         </a>
       </div>
@@ -121,16 +146,16 @@
   </div>
 
   <!-- Main Luxury Header -->
-  <header class="sticky top-0 z-40 bg-royal-950/90 badge-blur border-b border-gold-500/20">
+  <header class="sticky top-0 z-40 bg-royal-950/95 badge-blur border-b border-gold-500/20">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       
       <!-- Brand Logo & Showroom Info -->
       <a href="#" class="flex items-center gap-3">
-        <div class="w-11 h-11 rounded-full overflow-hidden border-2 border-gold-500 shadow-lg bg-royal-900 flex-shrink-0">
-          <img src="images/sadia_10.webp" alt="Sadia Wedding Shop Logo" class="w-full h-full object-cover">
+        <div class="w-11 h-11 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-gold-500 shadow-lg bg-royal-900 flex-shrink-0 relative">
+          <img src="images/sadia_10.webp" onerror="this.src='images/sadia_07.webp'" alt="Sadia Wedding Shop Logo" class="w-full h-full object-cover">
         </div>
         <div>
-          <h1 class="text-lg md:text-xl font-black tracking-wider text-white font-serif uppercase">
+          <h1 class="text-lg md:text-xl font-black tracking-wider text-white font-serif uppercase leading-tight">
             সাদিয়া ওয়েডিং শপ
           </h1>
           <p class="text-[10px] md:text-xs text-gold-400 font-medium flex items-center gap-1">
@@ -141,11 +166,11 @@
 
       <!-- Quick Action CTA -->
       <div class="flex items-center gap-2">
-        <a href="tel:01632167169" class="hidden sm:flex items-center gap-1.5 text-xs text-gray-200 hover:text-gold-300 font-semibold px-3 py-1.5 rounded-full border border-gold-500/30 transition">
+        <a href="tel:01632167169" class="hidden sm:flex items-center gap-1.5 text-xs text-gray-200 hover:text-gold-300 font-semibold px-3.5 py-1.5 rounded-full border border-gold-500/30 transition">
           <i data-lucide="phone" class="w-3.5 h-3.5 text-gold-400"></i>
           <span>০১৬৩২-১৬৭১৬৯</span>
         </a>
-        <a href="https://wa.me/8801632167169" target="_blank" class="flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-royal-950 px-4 py-1.5 rounded-full text-xs md:text-sm font-bold shadow-md transition">
+        <a href="https://wa.me/8801632167169" target="_blank" class="flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-royal-950 px-4 py-1.5 rounded-full text-xs md:text-sm font-bold shadow-md transition active:scale-95">
           <i data-lucide="message-circle" class="w-4 h-4 fill-royal-950"></i>
           <span>হোয়াটসঅ্যাপ</span>
         </a>
@@ -173,19 +198,20 @@
     </div>
 
     <!-- Interactive Hero Spotlight Showcase -->
-    <div class="bg-gradient-to-br from-royal-900 via-royal-850 to-royal-900 border border-gold-500/30 rounded-3xl p-4 md:p-6 shadow-2xl gold-border-glow">
+    <div class="bg-gradient-to-br from-royal-900 via-royal-850 to-royal-900 border border-gold-500/30 rounded-3xl p-4 md:p-6 shadow-2xl gold-card-glow gold-border-shine">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
         
         <!-- Left: Interactive Image Viewer -->
         <div class="lg:col-span-6 flex flex-col gap-3">
-          <div class="relative aspect-[3/4] bg-royal-950 rounded-2xl overflow-hidden border border-gold-500/25 shadow-inner">
-            <img id="mainSpotlightImg" src="images/sadia_07.webp" alt="Sadia Wedding Royal Maroon Sherwani" class="w-full h-full object-cover transition-opacity duration-300">
+          <div class="relative aspect-[3/4] bg-royal-950 rounded-2xl overflow-hidden border border-gold-500/30 shadow-inner group cursor-pointer" onclick="openLightbox()">
+            <img id="mainSpotlightImg" src="images/sadia_07.webp" onerror="this.src='images/sadia_01.webp'" alt="Sadia Wedding Royal Maroon Sherwani" class="w-full h-full object-cover transition-opacity duration-300 group-hover:scale-105 transition duration-500">
             
             <div class="absolute top-3 left-3 bg-gradient-to-r from-gold-500 to-gold-600 text-royal-950 text-xs font-black px-3 py-1 rounded-full shadow-lg">
               ✨ অফিশিয়াল সিগনেচার বর সেট
             </div>
-            <div class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-gold-300 text-xs font-mono px-3 py-1 rounded-lg border border-gold-500/30">
-              #SW-ROYAL-MAROON
+            <div class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-gold-300 text-xs font-mono px-3 py-1 rounded-lg border border-gold-500/30 flex items-center gap-1.5">
+              <i data-lucide="zoom-in" class="w-3.5 h-3.5 text-gold-400"></i>
+              <span id="spotlightCodeBadge">#SW-ROYAL-MAROON</span>
             </div>
           </div>
 
@@ -244,8 +270,11 @@
             </div>
 
             <!-- What's Included in Package -->
-            <div class="bg-royal-900/60 rounded-xl p-3 border border-gold-500/15 mb-4 text-xs text-gray-300 space-y-1.5">
-              <div class="font-bold text-gold-400 text-[11px] uppercase tracking-wider mb-1">🎁 প্যাকেজের অন্তর্ভুক্ত আইটেম:</div>
+            <div class="bg-royal-900/60 rounded-xl p-3.5 border border-gold-500/15 mb-4 text-xs text-gray-300 space-y-2">
+              <div class="font-bold text-gold-400 text-[11px] uppercase tracking-wider mb-1 flex items-center justify-between">
+                <span>🎁 প্যাকেজের অন্তর্ভুক্ত রয়্যাল আইটেম:</span>
+                <span class="text-emerald-400 text-[10px]">১০০% রেডি সেট</span>
+              </div>
               <div class="grid grid-cols-2 gap-2 text-[11px]">
                 <div class="flex items-center gap-1.5">
                   <i data-lucide="check-circle" class="w-3.5 h-3.5 text-gold-400"></i>
@@ -315,7 +344,7 @@
     </div>
   </section>
 
-  <!-- Official Showroom Video Section (High Trust & Conversion) -->
+  <!-- Official Showroom Video Section (High Trust & Authority) -->
   <section class="px-4 py-8 max-w-6xl mx-auto border-t border-gold-500/20">
     <div class="text-center mb-6">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold mb-2">
@@ -441,7 +470,7 @@
             <div class="bg-royal-950/80 p-3 rounded-xl border border-gold-500/20">
               <span class="text-gold-400 font-bold block mb-0.5">📞 সরাসরি হটলাইন:</span>
               <a href="tel:01632167169" class="text-white font-mono font-bold hover:text-gold-300 transition">০১৬৩২-১৬৭১৬৯</a> / 
-              <a href="tel:01766090496" class="text-white font-mono font-bold hover:text-gold-300 transition">০১766-০৯০৪৯৬</a>
+              <a href="tel:01766090496" class="text-white font-mono font-bold hover:text-gold-300 transition">০১৭৬৬-০৯০৪৯৬</a>
             </div>
             <div class="bg-royal-950/80 p-3 rounded-xl border border-gold-500/20">
               <span class="text-gold-400 font-bold block mb-0.5">✉️ অফিশিয়াল ইমেইল:</span>
@@ -463,8 +492,8 @@
 
         <!-- Right: Official Business Card Image -->
         <div class="lg:col-span-5 flex flex-col items-center">
-          <div class="relative w-full max-w-sm rounded-2xl overflow-hidden border-2 border-gold-500/30 shadow-2xl group">
-            <img src="images/sadia_04.webp" alt="Sadia Wedding Shop Official Visiting Card" class="w-full h-auto object-cover group-hover:scale-105 transition duration-500">
+          <div class="relative w-full max-w-sm rounded-2xl overflow-hidden border-2 border-gold-500/30 shadow-2xl group cursor-pointer" onclick="openVisitingCardModal()">
+            <img src="images/sadia_04.webp" onerror="this.src='images/sadia_07.webp'" alt="Sadia Wedding Shop Official Visiting Card" class="w-full h-auto object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute bottom-2 left-2 right-2 bg-black/85 backdrop-blur px-3 py-1.5 rounded-lg border border-gold-500/20 text-center text-[10px] text-gold-300 font-semibold">
               অফিশিয়াল বিজনেস কার্ড • মোঃ আব্দুস সালাম (প্রোপ্রাইটর)
             </div>
@@ -562,6 +591,12 @@
     </div>
   </div>
 
+  <!-- Fullscreen Image Lightbox Modal -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeLightbox()">
+    <button class="absolute top-4 right-4 text-white hover:text-gold-400 p-2 text-xl font-bold">✕ বন্ধ করুন</button>
+    <img id="lightboxImg" src="" alt="Full View" class="max-w-full max-h-[90vh] object-contain rounded-2xl border border-gold-500/40 shadow-2xl">
+  </div>
+
   <!-- JavaScript Logic -->
   <script>
     // Product Catalog Database
@@ -576,6 +611,7 @@
         oldPrice: '৳১৬,৫০০',
         rentPrice: '৳৩,৫০০',
         image: 'images/sadia_07.webp',
+        fallback: 'images/sadia_01.webp',
         badge: 'বেস্ট সেলার বর সেট',
         sizes: ['৩৮', '৪০', '৪২', '৪৪'],
         selectedSize: '৪০'
@@ -590,6 +626,7 @@
         oldPrice: '৳১৮,৫০০',
         rentPrice: '৳৪,২০০',
         image: 'images/sadia_01.webp',
+        fallback: 'images/sadia_07.webp',
         badge: 'প্রিমিয়াম ব্রাইডাল',
         sizes: ['৩৮', '৪০', '৪২', '৪৪', '৪৬'],
         selectedSize: '৪২'
@@ -604,6 +641,7 @@
         oldPrice: '৳১১,৫০০',
         rentPrice: '৳২,৮০০',
         image: 'images/sadia_02.webp',
+        fallback: 'images/sadia_01.webp',
         badge: 'রয়্যাল তলোয়ার',
         sizes: ['৩৮', '৪০', '৪২', '৪৪'],
         selectedSize: '৪০'
@@ -618,6 +656,7 @@
         oldPrice: '৳১২,৮০০',
         rentPrice: '৳৩,০০০',
         image: 'images/sadia_03.webp',
+        fallback: 'images/sadia_07.webp',
         badge: 'গ্রুম পাগড়ি কম্বো',
         sizes: ['৩৮', '৪০', '৪২', '৪৪'],
         selectedSize: '৪০'
@@ -632,6 +671,7 @@
         oldPrice: '৳১৫,০০০',
         rentPrice: '৳৩,২০০',
         image: 'images/sadia_05.webp',
+        fallback: 'images/sadia_01.webp',
         badge: 'ট্রেন্ডিং',
         sizes: ['৩৮', '৪০', '৪২', '৪৪'],
         selectedSize: '৪০'
@@ -646,6 +686,7 @@
         oldPrice: '৳১৩,৯০০',
         rentPrice: '৳২,৯০০',
         image: 'images/sadia_06.webp',
+        fallback: 'images/sadia_07.webp',
         badge: 'ক্লাসিক লুক',
         sizes: ['৩৮', '৪০', '৪২', '৪৪'],
         selectedSize: '৪২'
@@ -660,6 +701,7 @@
         oldPrice: '৳১২,৫০০',
         rentPrice: '৳২,৭০০',
         image: 'images/sadia_08.webp',
+        fallback: 'images/sadia_01.webp',
         badge: 'রিসেপশন স্পেশাল',
         sizes: ['৩৮', '৪০', '৪২', '৪৪'],
         selectedSize: '৪০'
@@ -674,6 +716,7 @@
         oldPrice: '৳১১,২০০',
         rentPrice: '৳২,৫০০',
         image: 'images/sadia_09.webp',
+        fallback: 'images/sadia_07.webp',
         badge: 'মর্ডান কাট',
         sizes: ['৩৮', '৪০', '৪২', '৪৪'],
         selectedSize: '৪০'
@@ -692,7 +735,7 @@
       const priceText = (currentHeroDeal === 'rent') ? '৳৩,৫০০ (ভাড়া)' : currentHeroPrice;
       
       const message = `আসসালামু আলাইকুম সাদিয়া ওয়েডিং শপ!
-আমি ওয়েবসাইট থেকে আপনার শেরওয়ানি কালেকশন দেখলাম।
+আমি ডেমো ওয়েবসাইট থেকে আপনার শেরওয়ানি কালেকশনটি দেখেছি।
 • কোড: #${currentHeroCode}
 • প্রোডাক্ট: ${currentHeroTitle}
 • অপশন: ${typeText} জন্য আগ্রহী
@@ -724,6 +767,7 @@
 
       document.getElementById('heroTitle').innerText = title;
       document.getElementById('heroCode').innerText = `কোড: #${code} • শাহেরা ট্রপিক্যাল সেন্টার স্পেশাল`;
+      document.getElementById('spotlightCodeBadge').innerText = `#${code}`;
       document.getElementById('heroBuyPrice').innerText = buyPrice;
       document.getElementById('heroOldPrice').innerText = oldPrice;
       document.getElementById('heroRentPrice').innerText = rentPrice;
@@ -775,7 +819,7 @@
         card.className = 'bg-royal-900/90 border border-gold-500/25 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-gold-400 transition shadow-lg group';
 
         const defaultWaMsg = encodeURIComponent(`আসসালামু আলাইকুম সাদিয়া ওয়েডিং শপ!
-আমি ওয়েবসাইট থেকে আপনার শেরওয়ানি কালেকশনটি পছন্দ করেছি।
+আমি ডেমো ওয়েবসাইট থেকে আপনার শেরওয়ানি কালেকশনটি পছন্দ করেছি।
 • কোড: #${item.code}
 • প্রোডাক্ট: ${item.title}
 • সাইজ: ${item.selectedSize}
@@ -785,8 +829,8 @@
 
         card.innerHTML = `
           <div>
-            <div class="relative aspect-[3/4] bg-royal-950 overflow-hidden">
-              <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="relative aspect-[3/4] bg-royal-950 overflow-hidden cursor-pointer" onclick="openLightboxImage('${item.image}')">
+              <img src="${item.image}" onerror="this.src='${item.fallback || 'images/sadia_01.webp'}'" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
               <div class="absolute top-2.5 left-2.5 bg-royal-950/90 border border-gold-500/30 text-gold-400 text-[10px] font-bold px-2.5 py-0.5 rounded-full">
                 ${item.badge}
               </div>
@@ -852,7 +896,7 @@
 
         const waBtn = document.getElementById(`gridBtn-${productId}`);
         const msg = encodeURIComponent(`আসসালামু আলাইকুম সাদিয়া ওয়েডিং শপ!
-আমি ওয়েবসাইট থেকে আপনার শেরওয়ানি কালেকশনটি পছন্দ করেছি।
+আমি ডেমো ওয়েবসাইট থেকে আপনার শেরওয়ানি কালেকশনটি পছন্দ করেছি।
 • কোড: #${prod.code}
 • প্রোডাক্ট: ${prod.title}
 • সাইজ: ${size}
@@ -887,6 +931,29 @@
       const m = document.getElementById('sizeModal');
       m.classList.add('hidden');
       m.classList.remove('flex');
+    }
+
+    function openLightbox() {
+      const src = document.getElementById('mainSpotlightImg').src;
+      openLightboxImage(src);
+    }
+
+    function openLightboxImage(src) {
+      const m = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      img.src = src;
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const m = document.getElementById('lightboxModal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function openVisitingCardModal() {
+      openLightboxImage('images/sadia_04.webp');
     }
 
     // Initialize on load
